@@ -7,7 +7,7 @@ The project requests to take a baseline installation of a Linux server and prepa
 ## Information
 	• Public IP: 3.84.49.72
 	• Accessible SSH port: 2200
-	• Application URL: http://ec2-3-84-49-72.compute-1.amazonaws.com/
+	• Application URL: http://ec2-3-84-49-72.compute-1.amazonaws.com/	
 	
 ## Project Details
 
@@ -18,13 +18,8 @@ Use [Amazon Lightsail](https://amazonlightsail.com/) to create a Linux server in
   * Create an instance
     * Login and create an instance
     * Instance image: Ubuntu OS only - Ubuntu 16.04 LTS
- 	* Start the instance
-      
-      Picture 1
-      
+ 	* Start the instance    
   * Add port 123 and 2200 to Firewall on the instance to accept connections (22 and 80 are default)
-  
-      Picture 2
       
 ## Server Configuration
 1. SSH into the server
@@ -165,8 +160,6 @@ Use [Amazon Lightsail](https://amazonlightsail.com/) to create a Linux server in
     * $ source venv/bin/activate
     * $ sudo chmod -R 777 venv
     
-    Picture 3 - show /var/www/catalog/catalog$ ls -la --> venv directory
-
 6. Install Flask and dependencies
 
      * `$ sudo apt-get install python-pip`
@@ -179,8 +172,6 @@ Use [Amazon Lightsail](https://amazonlightsail.com/) to create a Linux server in
      * `$ sudo pip install redirect`
      * `$ sudo pip install psycopg2-binary`
      * `$ sudo -H pip install oauth2client`
-     
-      Picture 4 - show requirements
 
 7. Rename the application.py to `__init__.py` in /var/www/catalog/catalog
 
@@ -258,23 +249,19 @@ Use [Amazon Lightsail](https://amazonlightsail.com/) to create a Linux server in
       * `$ python /var/www/catalog/catalog/setup_database.py` -> setup the database
       
 10. Restart Apache to launch the app -> `$ sudo service apache2 restart`
-
-    Picture 5 --- first page of item catalog 
-      
       
 ## Troubleshooting
  
   * Error: pg_config executable not found while installing `$ sudo pip install psycopg2`
   
     Solution: `$ sudo pip install psycopg2-binary`
-   
-   * wsgi:crit: The mod_pyt hon module can not be used on conjunction with mod_wsgi 4.0+. Remove the mod_python module from the Apache conf iguration
-   
-   Solution: `$ sudo apt-get remove libapache2-mod-python` -> removed libapache2-mod-python; fixed the issue
+  
+  * wsgi:crit: The mod_python module cannot be used on conjunction with mod_wsgi 4.0+. Remove the mod_python module from the Appache configuration
+  
+    Solution: `$ sudo apt-get remove libapache2-mod-python` -> removed libapache2-mod-python; fixed the issue
     
-   * Error: Target WSGI script '/var/www/flaskApp/items-catalog/items-catalog.wsgi' cannot be loaded as Python module in /var/log/apache2/error.log
-   
-   Solution: `$ sudo -H pip install oauth2client` -> add '-H' and reinstall oauth2client; fixed the issue
-   
-   
-   *Special thanks to [iliketomatoes](https://github.com/iliketomatoes) for a very helpful README
+  * Error: Target WSGI script '/var/www/flaskApp/items-catalog/items-catalog.wsgi' cannot be loaded as Python module in /var/log/apache2/error.log
+  
+    Solution: `$ sudo -H pip install oauth2client` -> add '-H' and reinstall oauth2client; fixed the issue
+    
+ *Special thanks to [iliketomatoes](https://github.com/iliketomatoes) for a very helpful README*
