@@ -54,7 +54,7 @@ Use [Amazon Lightsail](https://amazonlightsail.com/) to create a Linux server in
     * Edit `/etc/hosts` to prevent the error - sudo: unable to resolve host
      
       * `$ sudo nano /etc/hosts`
-      * Add the host: `127.0.1.1 ip-10-20-37-65` under '127.0.0.1 localhost'
+      * Add the host: `127.0.1.1 ip-10-20-37-65` under `127.0.0.1 localhost`
       
 3. Update all packages and install `finger`:
      * `$ sudo apt-get update`
@@ -123,7 +123,7 @@ Use [Amazon Lightsail](https://amazonlightsail.com/) to create a Linux server in
 
     *mod_wsgi is an Apache HTTP server mod that enables Apache to serve Flask applications*
     
-    * Enable mod_wsgi -> `$ sudo a2enmod wsgi` -> enable mod_wsgi
+    * Enable mod_wsgi -> `$ sudo a2enmod wsgi`
     * `$ sudo service apache2 start`
     
     *Input the public IP address and should be able to see Apache2 Ubuntu Default Page*
@@ -236,10 +236,10 @@ Use [Amazon Lightsail](https://amazonlightsail.com/) to create a Linux server in
       * `$ sudo su - postgres -i`
       
       * `# CREATE USER catalog WITH PASSWORD 'password';` -> create a new user called 'catalog' with password
-      * `# ALTER USER catalog CREATEDB;` -> grant the catalog user CREATDB
+      * `# ALTER USER catalog CREATEDB;` -> grant the catalog user CREATEDB
       * `# CREATE DATABASE catalog WITH OWNER catalog;` -> create the catalog database owned by the catalog user
       * `# \c catalog` -> connect to the database
-      * `# REVOKE ALL ON SCHEMA public FROM public;' -> revoke all rights
+      * `# REVOKE ALL ON SCHEMA public FROM public;` -> revoke all rights
       * `# GRANT ALL ON SCHEMA public TO catalog;` -> only let the catalog role create tables
       * `# \q` -> log out form PostgreSQL
       * `$ exit` -> return to the grader user
